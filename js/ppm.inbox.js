@@ -18,8 +18,34 @@ var
     task_list_model: null
   },
 
-  stateMap = {},
+  stateMap = {
+    $append_target: null
+  },
   jqueryMap = {},
   setJqueryMap, configModule, initModule;
 
+  setJqueryMap = function() {
+    var
+      $append_target = stateMap.$append_target,
+      $content = $append_target.find('.ppm-inbox');
+
+    jqueryMap = {
+      $task: $content.find('.ppm-inbox-task'),
+    }
+  };
+
+  configModule = function() {};
+
+  initModule = function($append_target) {
+    $append_target.append(configMap.main_html);
+    stateMap.$append_target = $append_target;
+    setJqueryMap();
+
+    return true;
+  };
+
+  return {
+    initModule  : initModule,
+    configModule: configModule
+  }
 }());

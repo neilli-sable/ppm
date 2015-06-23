@@ -3,7 +3,7 @@ html, body ,h1{
   padding: 0;
 }
 
-.infobar {
+.ppm-shell-header {
   display: block;
   margin: 0;
   background: #000;
@@ -20,14 +20,14 @@ html, body ,h1{
   float: left;
 }
 
-.content_panel {
+.ppm-shell-main {
   width: 700px;
   height: 700px;
   margin: 10px auto;
   background: #ddd;
   border-radius: 10px;
 }
-.sidebar {
+.ppm-shell-main-sidebar {
   float: left;
   position: relative;
   background: #559911;
@@ -37,7 +37,7 @@ html, body ,h1{
   border-radius: 10px 0 0 10px;
 }
 
-.content {
+.ppm-inbox {
   float: left;
   background: #440099;
   width: 80%;
@@ -46,7 +46,7 @@ html, body ,h1{
   border-radius: 0 10px 10px 0;
 }
 
-.item {
+.ppm-inbox-task {
   background: #fff;;
   margin: 10px;
   padding: 10px;

@@ -8,7 +8,7 @@ ppm.shell = (function() {
   var
     configMap = {
       main_html :String() +
-      '<header class="ppm-shell-header infobar">' +
+      '<header class="ppm-shell-header">' +
         '<div class="pull-left">' +
           '<div class="ppm-shell-header-logo">PleasePleaseMe</div>' +
         '</div>' +
@@ -16,8 +16,8 @@ ppm.shell = (function() {
           '<button class="please_button">pls</button>' +
         '</div>' +
       '</header>' +
-      '<div class="ppm-shell-main content_panel">' +
-        '<nav class="ppm-shell-main-sidebar sidebar">' +
+      '<div class="ppm-shell-main">' +
+        '<nav class="ppm-shell-main-sidebar">' +
           '<ul>' +
             '<li><a href="">Inbox</a></li>' +
             '<li>Todo</li>' +
@@ -49,7 +49,7 @@ ppm.shell = (function() {
 
     jqueryMap = {
       $container : $container,
-      $list      : $container.find('.ppm-shell-main-list')
+      $list      : $container.find('.ppm-shell-main')
     };
   };
   initModule = function($container) {
@@ -63,7 +63,7 @@ ppm.shell = (function() {
       inbox_model: ppm.model.inbox,
       task_list_model: ppm.model.task_list
     });
-    ppm.inbox.initModule(jqueryMap.$container);
+    ppm.inbox.initModule(jqueryMap.$list);
   };
 
   return {
