@@ -21,13 +21,11 @@ ppm.model = (function() {
   makeTask = function(task_map) {
     var
       task,
-      cid = task_map.cid,
       id = task_map.id,
       title = task_map.title,
       content = task_map.content;
 
     task = Object.create(taskProto);
-    task.cid =cid;
     task.title = title;
     task.content = content;
 
@@ -36,14 +34,19 @@ ppm.model = (function() {
     }
 
     stateMap.inbox_db.insert(task);
+    stateMap.inbox_db({id:'0000000001'}).first();
     return task;
   };
 
   inbox = (function() {
+    var get_db;
     get_db = function(){
       return stateMap.inbox_db;
     };
-  });
+    return {
+      get_db: get_db
+    };
+  }());
 
   initModule = function() {
     var task_list, task_map;
