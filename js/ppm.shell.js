@@ -52,6 +52,7 @@ ppm.shell = (function() {
       $list      : $container.find('.ppm-shell-main')
     };
   };
+
   initModule = function($container) {
     // load HTML and map jQuery collenctions
     stateMap.$container = $container;
@@ -60,8 +61,8 @@ ppm.shell = (function() {
 
     // configure and initialize feature module
     ppm.inbox.configModule({
-      inbox_model: ppm.model.inbox,
-      task_list_model: ppm.model.task_list
+      inbox_model: ppm.model.inbox
+      //task_list_model: ppm.model.task_list
     });
     ppm.inbox.initModule(jqueryMap.$list);
   };

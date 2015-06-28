@@ -7,7 +7,7 @@ ppm.inbox = (function(){
 var
   configMap = {
     main_html : String() +
-    '<main class="ppm-inbox content">' +
+    '<main class="ppm-inbox">' +
       '<div class="ppm-inbox-task">' +
         '<span>Title</span>' +
         '<p>aaaaaaaaaaaaaaaaaaaaaaaaaa</p>' +
@@ -15,7 +15,11 @@ var
     '</main>',
 
     inbox_model: null,
-    task_list_model: null
+    task_list_model: null,
+    settable_map: {
+      inbox_model: true,
+      task_list_model: true
+    },
   },
 
   stateMap = {
@@ -34,13 +38,18 @@ var
     }
   };
 
-  configModule = function() {};
+  configModule = function(input_map) {
+    ppm.util.setConfigMap({
+      input_map: input_map,
+      settable_map: configMap.settable_map,
+      config_map: configMap
+    });
+  };
 
   initModule = function($append_target) {
     $append_target.append(configMap.main_html);
     stateMap.$append_target = $append_target;
     setJqueryMap();
-
     return true;
   };
 

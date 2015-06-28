@@ -39,11 +39,11 @@ ppm.model = (function() {
     return task;
   };
 
-  inbox = {
-    get_db: function(){
-      return stateMap.people_db;
-    }
-  };
+  inbox = (function() {
+    get_db = function(){
+      return stateMap.inbox_db;
+    };
+  });
 
   initModule = function() {
     var task_list, task_map;

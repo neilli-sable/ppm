@@ -7,7 +7,6 @@ var ppm = (function() {
   var initModule = function($container) {
     ppm.model.initModule();
     ppm.shell.initModule($container);
-    ppm.fake.getTaskList();
   };
 
   return {initModule: initModule};
