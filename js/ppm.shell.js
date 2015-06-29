@@ -10,7 +10,7 @@ ppm.shell = (function() {
       main_html :String() +
       '<header class="ppm-shell-header">' +
         '<div class="pull-left">' +
-          '<div class="ppm-shell-header-logo">PleasePleaseMe</div>' +
+          '<h1 class="ppm-shell-header-logo">PleasePleaseMe</h1>' +
         '</div>' +
         '<div class="ppm-shell-header-button pull-right">' +
           '<button class="please_button">pls</button>' +

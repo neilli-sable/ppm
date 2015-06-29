@@ -2,6 +2,9 @@ html, body ,h1{
   margin: 0;
   padding: 0;
 }
+li{
+  list-style-type: none;
+}
 
 .ppm-shell-header {
   display: block;
@@ -29,6 +32,7 @@ html, body ,h1{
 }
 .ppm-shell-main-sidebar {
   float: left;
+  font-size: 15pt;
   position: relative;
   background: #559911;
   width: 20%;
@@ -45,12 +49,25 @@ html, body ,h1{
   margin: 0;
   border-radius: 0 10px 10px 0;
 }
+.ppm-inbox-title {
+  font-size: 22pt;
+  margin-left: 10px; 
+}
 
 .ppm-inbox-task {
   background: #fff;;
   margin: 10px;
   padding: 10px;
 }
+
+.ppm-inbox-task-title {
+  font-size: 22pt;
+}
+
+.ppm-inbox-task-content {
+  font-size: 15pt;
+}
+
 footer {
   position: relative;
   background: #991133;

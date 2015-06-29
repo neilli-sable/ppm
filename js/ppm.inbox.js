@@ -8,6 +8,7 @@ var
   configMap = {
     main_html : String() +
     '<main class="ppm-inbox">' +
+    '<h2 class="ppm-inbox-title">Inbox</h2>' +
     '</main>',
 
     inbox_model: null,
@@ -48,8 +49,8 @@ var
     inbox_db().each(function(task) {
       task_html = String() +
         '<div class="ppm-inbox-task">' +
-          '<span>' + task.title + '</span>' +
-          '<p>' + task.content + '</p>' +
+          '<h3 class="ppm-inbox-task-title">' + task.title + '</h3>' +
+          '<p class="ppm-inbox-task-content">' + task.content + '</p>' +
         '</div>';
       $append_target.append(task_html);
     });
