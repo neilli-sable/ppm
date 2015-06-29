@@ -34,7 +34,6 @@ ppm.model = (function() {
     }
 
     stateMap.inbox_db.insert(task);
-    stateMap.inbox_db({id:'0000000001'}).first();
     return task;
   };
 
