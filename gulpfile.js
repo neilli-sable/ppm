@@ -3,10 +3,10 @@ var plumber = require('gulp-plumber');
 
 var uglify = require('gulp-uglify');
 gulp.task('js', function() {
-  gulp.src(['js/**/*.js', '!js/min/**/*.js'])
+  gulp.src(['public/js/**/*.js', '!public/js/min/**/*.js'])
     .pipe(plumber())
     .pipe(uglify())
-    .pipe(gulp.dest('./js/min'))
+    .pipe(gulp.dest('./public/js/min'))
     .pipe(browser.reload({stream:true}));
 });
 
@@ -24,6 +24,6 @@ gulp.task('server', function() {
 });
 
 gulp.task('default', ['server'], function() {
-  gulp.watch(['js/**/*.js', '!js/min/**/*.js'], ['js']);
-  gulp.watch(['./*.html'], ['bs-reload']);
+  gulp.watch(['public/js/**/*.js', '!public/js/min/**/*.js'], ['js']);
+  gulp.watch(['./public/*.html'], ['bs-reload']);
 });
