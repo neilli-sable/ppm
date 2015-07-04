@@ -8,10 +8,7 @@ var
   configMap = {
     main_html : String() +
     '<main class="ppm-inbox">' +
-      '<div class="ppm-inbox-task">' +
-        '<span>Title</span>' +
-        '<p>aaaaaaaaaaaaaaaaaaaaaaaaaa</p>' +
-      '</div>' +
+    '<h2 class="ppm-inbox-title">Inbox</h2>' +
     '</main>',
 
     inbox_model: null,
@@ -26,7 +23,8 @@ var
     $append_target: null
   },
   jqueryMap = {},
-  setJqueryMap, configModule, initModule;
+  setJqueryMap, configModule,
+  getTaskList, initModule;
 
   setJqueryMap = function() {
     var
@@ -35,7 +33,7 @@ var
 
     jqueryMap = {
       $task: $content.find('.ppm-inbox-task'),
-    }
+    };
   };
 
   configModule = function(input_map) {
@@ -46,8 +44,22 @@ var
     });
   };
 
+  displayTaskList = function($append_target){
+    inbox_db = ppm.model.inbox.get_db();
+    inbox_db().each(function(task) {
+      task_html = String() +
+        '<div class="ppm-inbox-task">' +
+          '<h3 class="ppm-inbox-task-title">' + task.title + '</h3>' +
+          '<p class="ppm-inbox-task-content">' + task.content + '</p>' +
+        '</div>';
+      $append_target.append(task_html);
+    });
+  };
+
   initModule = function($append_target) {
     $append_target.append(configMap.main_html);
+
+    displayTaskList($append_target.find('.ppm-inbox'));
     stateMap.$append_target = $append_target;
     setJqueryMap();
     return true;
@@ -56,5 +68,5 @@ var
   return {
     initModule  : initModule,
     configModule: configModule
-  }
+  };
 }());
