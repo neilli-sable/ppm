@@ -2,7 +2,20 @@
  * routes.js
 */
 'use strict';
-var configRoutes;
+var
+  configRoutes,
+  mongoClient = require('mongodb').MongoClient,
+  assert      = require('assert'),
+  url = "mongodb://localhost:27017/ppm",
+  users
+  ;
+
+mongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log('** Connected to MongoDB **');
+
+  users = db.collection('users');
+});
 
 configRoutes = function(app, server) {
   app.get('/', function(request, response) {
